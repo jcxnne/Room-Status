@@ -1,0 +1,230 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: "Poppins", sans-serif;
+	display: flex;
+	height: 100vh;
+	background: #ededed;
+	color: #000;
+	overflow: hidden;
+}
+
+.main {
+	flex: 1;
+	padding: 30px 40px;
+	overflow-y: auto;
+	background: #ededed;
+}
+
+.main-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 30px;
+}
+
+.main-header h1 {
+	font-size: 28px;
+	font-weight: 700;
+	color: #1a1a1a;
+}
+
+body.dark .main-header h1 {
+	color: #fff;
+}
+
+.notifications-container {
+	background: #fff;
+	border-radius: 16px;
+	box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+	overflow: hidden;
+}
+
+.tabs-header {
+	display: flex;
+	align-items: center;
+	padding: 20px 24px;
+	border-bottom: 1px solid #e5e7eb;
+	gap: 32px;
+}
+
+.tab {
+	font-size: 14px;
+	font-weight: 500;
+	color: #6b7280;
+	cursor: pointer;
+	padding-bottom: 4px;
+	border-bottom: 2px solid transparent;
+	white-space: nowrap;
+}
+
+.tab:hover {
+	color: #1a1a1a;
+}
+
+.tab.active {
+	color: #1a1a1a;
+	border-bottom-color: #1a1a1a;
+}
+
+.more-options {
+	margin-left: auto;
+	cursor: pointer;
+	color: #6b7280;
+	padding: 4px;
+}
+
+.more-options:hover {
+	color: #1a1a1a;
+}
+
+.notifications-list {
+	display: flex;
+	flex-direction: column;
+}
+
+.notification-item {
+	display: flex;
+	align-items: center;
+	padding: 16px 24px;
+	border-bottom: 1px solid #f3f4f6;
+	cursor: pointer;
+	gap: 16px;
+}
+
+.notification-item:hover {
+	background: #f9fafb;
+}
+
+.notification-item.unread {
+	background: #fefce8;
+}
+
+.notification-item.unread:hover {
+	background: #fef9c3;
+}
+
+.checkbox {
+	width: 20px;
+	height: 20px;
+	border: 2px solid #d1d5db;
+	border-radius: 4px;
+	flex-shrink: 0;
+	cursor: pointer;
+}
+
+.checkbox:hover {
+	border-color: #9ca3af;
+}
+
+.checkbox.checked {
+	background: #1e40af;
+	border-color: #1e40af;
+	position: relative;
+}
+
+.checkbox.checked::after {
+	content: "✓";
+	position: absolute;
+	color: white;
+	font-size: 14px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.notification-content {
+	flex: 1;
+	min-width: 0;
+}
+
+.notification-text {
+	font-size: 14px;
+	color: #1a1a1a;
+	line-height: 1.5;
+	margin-bottom: 4px;
+}
+
+.notification-item.unread .notification-text {
+	font-weight: 600;
+}
+
+.notification-date {
+	font-size: 12px;
+	color: #6b7280;
+	white-space: nowrap;
+}
+
+body.dark {
+	background: #000000;
+	color: #fff;
+}
+
+body.dark .main {
+	background: #000000;
+}
+
+body.dark .notifications-container {
+	background: #121212;
+}
+
+body.dark .tabs-header {
+	border-bottom-color: #374151;
+}
+
+body.dark .tab {
+	color: #9ca3af;
+}
+
+body.dark .tab:hover {
+	color: #f3f4f6;
+}
+
+body.dark .tab.active {
+	color: #f3f4f6;
+	border-bottom-color: #f3f4f6;
+}
+
+body.dark .notification-item {
+	border-bottom-color: #374151;
+}
+
+body.dark .notification-item:hover {
+	background: #374151;
+}
+
+body.dark .notification-item.unread {
+	background: #422006;
+}
+
+body.dark .notification-item.unread:hover {
+	background: #713f12;
+}
+
+body.dark .notification-text {
+	color: #f3f4f6;
+}
+
+body.dark .notification-date {
+	color: #9ca3af;
+}
+
+body.dark .checkbox {
+	border-color: #4b5563;
+}
+
+body.dark .checkbox:hover {
+	border-color: #6b7280;
+}
+
+body.dark .more-options {
+	color: #9ca3af;
+}
+
+body.dark .more-options:hover {
+	color: #f3f4f6;
+}

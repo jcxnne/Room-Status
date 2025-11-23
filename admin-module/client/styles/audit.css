@@ -1,0 +1,299 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: "Poppins", sans-serif;
+	height: 100vh;
+	background: #ededed;
+	color: #000;
+	overflow-y: auto;
+	margin: 0;
+	padding: 0;
+}
+
+.main {
+	padding: 30px 40px;
+}
+
+.main-header {
+	margin-bottom: 30px;
+}
+
+.main-header h1 {
+	font-size: 28px;
+	font-weight: 700;
+	color: #1a1a1a;
+}
+
+.content-wrapper {
+	display: grid;
+	grid-template-columns: 380px 1fr;
+	gap: 24px;
+	align-items: start;
+}
+
+.chart-card {
+	background: #fff;
+	padding: 28px;
+	border-radius: 16px;
+	box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+	position: sticky;
+	top: 24px;
+}
+
+.chart-card h2 {
+	font-size: 15px;
+	margin-bottom: 24px;
+	font-weight: 600;
+	color: #1a1a1a;
+	text-align: center;
+	line-height: 1.4;
+}
+
+.chart-container {
+	position: relative;
+	height: 300px;
+	margin-bottom: 24px;
+}
+
+.date-filter {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 12px;
+	margin-top: 24px;
+}
+
+.date-group {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.date-group label {
+	font-size: 12px;
+	font-weight: 600;
+	color: #374151;
+}
+
+.date-input {
+	padding: 10px 14px;
+	border: 1px solid #d1d5db;
+	border-radius: 8px;
+	font-size: 13px;
+	font-family: "Poppins", sans-serif;
+	background: #fff;
+	color: #1a1a1a;
+	width: 100%;
+}
+
+.flagged-card {
+	background: #fff;
+	padding: 24px;
+	border-radius: 16px;
+	box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.flagged-card h2 {
+	font-size: 18px;
+	margin-bottom: 20px;
+	font-weight: 600;
+	color: #1a1a1a;
+}
+
+.table-container {
+	overflow-x: auto;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 14px;
+}
+
+thead {
+	background: #f9fafb;
+	position: sticky;
+	top: 0;
+	z-index: 10;
+}
+
+th {
+	text-align: left;
+	padding: 14px 20px;
+	font-size: 13px;
+	font-weight: 600;
+	color: #374151;
+	border-bottom: 2px solid #e5e7eb;
+	white-space: nowrap;
+}
+
+td {
+	padding: 18px 20px;
+	font-size: 14px;
+	color: #1a1a1a;
+	border-bottom: 1px solid #e5e7eb;
+	vertical-align: middle;
+}
+
+td:first-child {
+	width: 180px;
+}
+
+td:nth-child(2) {
+	width: auto;
+}
+
+td:nth-child(3) {
+	width: 140px;
+	white-space: nowrap;
+}
+
+td:nth-child(4) {
+	width: 120px;
+	text-align: center;
+}
+
+tr.highlight {
+	background: #fef9c3;
+}
+
+tr:hover {
+	background: #f9fafb;
+}
+
+tr.highlight:hover {
+	background: #fef08a;
+}
+
+.faculty-name {
+	font-weight: 600;
+}
+
+.status {
+	display: inline-block;
+	padding: 4px 12px;
+	border-radius: 6px;
+	font-size: 13px;
+	font-weight: 500;
+}
+
+.status.processing {
+	background: #fef9c3;
+	color: #854d0e;
+}
+
+.status.resolved {
+	background: #dcfce7;
+	color: #166534;
+}
+
+body.dark {
+	background: #000000;
+	color: #fff;
+}
+
+body.dark .chart-card,
+body.dark .flagged-card {
+	background: #121212;
+}
+
+body.dark .chart-card h2,
+body.dark .flagged-card h2 {
+	color: #f3f4f6;
+}
+
+body.dark .date-input {
+	background: #242424;
+	border-color: #242424;
+	color: #f3f4f6;
+}
+
+body.dark .date-group label {
+	color: #d1d5db;
+}
+
+body.dark .main-header h1 {
+	color: #f3f4f6;
+}
+
+body.dark thead {
+	background: #242424;
+}
+
+body.dark th {
+	color: #d1d5db;
+	border-bottom-color: #4b5563;
+}
+
+body.dark td {
+	color: #f3f4f6;
+	border-bottom-color: #374151;
+}
+
+body.dark tr:hover {
+	background: #374151;
+}
+
+body.dark tr.highlight {
+	background: #713f12;
+}
+
+body.dark tr.highlight:hover {
+	background: #854d0e;
+}
+
+@media (max-width: 1200px) {
+	.content-wrapper {
+		grid-template-columns: 1fr;
+	}
+
+	.chart-card {
+		position: relative;
+		top: 0;
+		max-width: 500px;
+		margin: 0 auto;
+	}
+}
+
+@media (max-width: 768px) {
+	.main {
+		padding: 20px;
+	}
+
+	.chart-card,
+	.flagged-card {
+		padding: 20px;
+	}
+
+	.date-filter {
+		grid-template-columns: 1fr;
+	}
+
+	th,
+	td {
+		padding: 12px 14px;
+		font-size: 13px;
+	}
+
+	td:first-child {
+		width: auto;
+	}
+
+	td:nth-child(3) {
+		white-space: normal;
+	}
+}
+
+@media (max-width: 600px) {
+	.table-container {
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	table {
+		min-width: 700px;
+	}
+}
