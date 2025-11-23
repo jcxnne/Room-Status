@@ -1,0 +1,180 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* CONTAINER */
+.container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+/* SIDEBAR (same as your design) */
+.sidebar {
+  flex: 0 0 70px;
+  background-color: #c6dbf7;
+  transition: flex-basis 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.sidebar:hover {
+  flex-basis: 260px;
+  align-items: flex-start;
+  padding-left: 20px;
+}
+
+/* PROFILE */
+.profile {
+  text-align: center;
+  width: 100%;
+}
+
+.profile img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin: 20px 0 10px;
+}
+
+.profile-info {
+  display: none;
+}
+
+.sidebar:hover .profile-info {
+  display: block;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.nav-links a {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  color: black;
+  text-decoration: none;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  background: #a7c8f5;
+}
+
+.nav-links span {
+  display: none;
+}
+
+.sidebar:hover .nav-links span {
+  display: inline;
+}
+
+/* MAIN */
+.main {
+  flex: 1;
+  padding: 30px 50px;
+}
+
+h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+/* TABS */
+.tabs {
+  display: flex;
+  gap: 40px;
+  border-bottom: 2px solid #ddd;
+  margin-bottom: 15px;
+}
+
+.tab {
+  background: none;
+  border: none;
+  font-size: 18px;
+  padding-bottom: 10px;
+  cursor: pointer;
+}
+
+.tab.active {
+  border-bottom: 3px solid black;
+  font-weight: 600;
+}
+
+/* NOTIFICATION LIST */
+.notif-list {
+  margin-top: 10px;
+  height: 460px;
+  overflow-y: auto;
+  background: white;
+  border-radius: 10px;
+}
+
+/* NOTIFICATION ITEM */
+.notif-item {
+  display: grid;
+  grid-template-columns: 40px 1fr auto;
+  align-items: center;
+  padding: 18px 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.notif-item.highlight {
+  background-color: #fffac4;
+}
+
+.date {
+  color: #666;
+  font-size: 14px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 700px) {
+  .sidebar {
+    flex: 0 0 60px;
+  }
+}
+
+@media (max-width: 500px) {
+  .sidebar {
+    display: none;
+  }
+  .main {
+    padding: 15px;
+  }
+}
+
+.notif-container {
+  background: white;
+  padding: 25px 35px;
+  border-radius: 15px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+/* Improve spacing */
+.notif-container h2 {
+  margin-bottom: 20px;
+}
+
+/* Adjust the notif list to fit inside white box */
+.notif-list {
+  margin-top: 10px;
+  height: 420px;
+  overflow-y: auto;
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid #eee;
+}

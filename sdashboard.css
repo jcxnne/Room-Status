@@ -1,0 +1,461 @@
+ * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      display: flex;
+      height: 100vh;
+      background-color: #f5f5f5;
+      color: #000;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      background-color: #c6dbf7;
+      width: 70px;
+      transition: width 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 20px 0;
+      align-items: center;
+    }
+
+    .sidebar:hover {
+      width: 260px;
+      align-items: flex-start;
+      padding-left: 20px;
+    }
+
+    .profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* ✅ centers vertically */
+  text-align: center;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+
+    .profile img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 10px;
+      margin-top: 20px;
+
+    }
+
+  .profile-info {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* ✅ centers the text under the image */
+  text-align: center;
+}
+
+    .sidebar:hover .profile-info {
+      display: flex;
+    }
+
+    .profile-info h3 {
+  margin-top: 10px;
+}
+
+
+    .profile-info p {
+      font-size: 15px;
+      color: #333;
+      line-height: 1.3;
+    }
+
+   .nav-links {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: flex-start; /* align links to left */
+  padding-left: 0;         /* reset any centering padding */
+  gap: 10px;
+}
+
+   .nav-links a {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 15px;
+  text-decoration: none;
+  color: #000;
+  font-size: 15px;
+  border-radius: 10px;
+  padding: 10px 20px; /* slightly reduced to fit better */
+  transition: background 0.3s;
+}
+    .nav-links a:hover {
+      background: #a7c8f5;
+    }
+
+   .nav-links i {
+  min-width: 24px;
+  text-align: center;
+}
+
+    .nav-links span {
+      display: none;
+      white-space: nowrap;
+    }
+
+.sidebar:hover .nav-links a span {
+  display: inline; /* show text on hover */
+}
+
+.sidebar:not(:hover) .nav-links a span {
+  display: none; /* hide text when collapsed */
+}
+
+    .nav-bottom {
+      margin-bottom: 20px;
+    }
+
+    /* Main Content */
+    .main {
+      flex: 1;
+      padding: 30px 50px;
+      overflow-y: auto;
+    }
+
+    .main-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+      flex-wrap: wrap;
+    }
+
+    .main-header h1 {
+      font-size: 26px;
+      font-weight: 700;
+    }
+
+    .search-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .search-bar {
+      width: 300px;
+      padding: 10px 15px;
+      border-radius: 20px;
+      border: 1px solid #ccc;
+      outline: none;
+    }
+
+    .logo {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background-color: #1e40af;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    /* Cards */
+    .cards {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      padding: 20px;
+      flex: 1;
+      min-width: 200px;
+      text-align: center;
+      transition: background 0.3s, color 0.3s;
+    }
+
+  .card h3 {
+  font-size: 16px;
+  margin: 0;
+}
+
+.card-icon {
+  width: 18px;
+  height: 18px;
+  color: #1e40af; /* icon color */
+}
+
+    .card p {
+      font-size: 30px;
+      font-weight: bold;
+    }
+
+    .card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centers horizontally */
+  justify-content: center; /* optional, centers vertically if needed */
+  gap: 10px; /* space between icon, title, and number */
+}
+
+    .room-status {
+  position: relative;
+  background: #fff;
+  padding: 18px;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: background 0.3s, color 0.3s;
+  overflow: visible;
+
+}
+
+    .room-status h2 {
+      font-size: 18px;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 10px;
+    }
+
+   .rooms {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+
+  /* ✅ Enable scrolling */
+  max-height: 300px; /* adjust height as needed */
+  overflow-y: auto;
+  padding-right: 10px; /* avoid hiding scrollbar */
+}
+
+/* Optional: make scrollbar look nicer */
+.rooms::-webkit-scrollbar {
+  width: 8px;
+}
+
+.rooms::-webkit-scrollbar-thumb {
+  background-color: #c7c7c7;
+  border-radius: 4px;
+}
+
+.rooms::-webkit-scrollbar-thumb:hover {
+  background-color: #999;
+}
+
+
+    .room {
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .available { background: #dbeafe; }
+    .reserved { background: #c7c5f6; }
+    .pending { background: #f8d0d0; }
+
+    .legend {
+      display: flex;
+      justify-content: center;
+      margin-top: 15px;
+      gap: 20px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 15px;
+    }
+
+    .dot {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+    }
+
+    .dot.available { background: #dbeafe; }
+    .dot.reserved { background: #c7c5f6; }
+    .dot.pending { background: #f8d0d0; }
+
+    .room-status-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+}
+
+.building-filter {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #aaa;
+  font-size: 14px;
+  background-color: #fff;
+}
+
+
+.room-status-content {
+  display: flex;
+  position: relative;
+}
+
+.rooms {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.vertical-filters {
+  position: absolute;
+  top: 50%;
+  right: -52px; /* pushes them outside container */
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.filter-tab {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  text-align: center;
+  padding: 15px 8px;
+  border-radius: 10px 0px 0px 0px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+  transition: 0.3s;
+  user-select: none;
+}
+
+.available-tab {
+  background-color: #dbeafe;
+}
+
+.reserved-tab {
+  background-color: #c7c5f6;
+}
+
+.pending-tab {
+  background-color: #f8d0d0;
+}
+
+.filter-tab:hover {
+  opacity: 0.8;
+  transform: rotate(180deg) scale(1.05);
+}
+
+ /* Dark Mode */
+    body.dark {
+      background: #121212;
+      color: #fff;
+    }
+
+    body.dark .sidebar {
+      background: #525252;
+    }
+
+     body.dark .card{
+      background: #525252;
+      color: white;
+     }
+
+    body.dark .room-status {
+      background: #525252;
+      color: black;
+    }
+
+    body.dark .nav-links a {
+      color: #fff;
+    }
+
+    body.dark .nav-links a:hover {
+      background: #8a8a8a;
+    }
+
+.nav-links a.active {
+    background-color: #a7c8f5; /* highlight color */
+}
+
+.nav-links a.active i {
+    color: #fff;               /* icon color */
+}
+
+body.dark .search-bar {
+  background-color: #333; 
+  color: #fff;            
+  border: 1px solid #555;   
+}
+
+body.dark .search-bar::placeholder {
+  color: #aaa;            
+}
+
+body.dark .search-bar:focus {
+  border-color: #8a8a8a;   
+}
+
+body.dark .search-icon {
+  color: #ccc;             
+}
+
+body.dark .building-filter {
+  background-color: #8a8a8a;
+  color: #fff;              
+  border: 1px solid #555;   
+}
+
+body.dark .building-filter option {
+  background-color: #8a8a8a;   
+  color: #fff;              
+}
+
+
+    .search-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  color: #666;
+  width: 18px;
+  height: 18px;
+  pointer-events: none; /* allows clicking through to the input */
+}
+
+.search-bar {
+  width: 300px;
+  padding: 10px 15px 10px 38px; /* extra left padding for icon */
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: 0.3s;
+}
+
+.search-bar:focus {
+  border-color: #1e40af;
+  box-shadow: 0 0 4px rgba(30, 64, 175, 0.4);
+}
+
