@@ -1,0 +1,818 @@
+/* ============================================
+   NOTIFICATION PAGE CSS
+   Complete styling for Faculty & Student notifications
+   ============================================ */
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+  background-color: #f5f5f5;
+  color: #000;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* ============================================
+   SIDEBAR STYLES
+   ============================================ */
+
+.sidebar {
+  background-color: #c6dbf7;
+  width: 70px;
+  transition: width 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px 0;
+  overflow: hidden;
+}
+
+.sidebar:hover {
+  width: 260px;
+}
+
+/* Profile Section - Always Centered */
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 30px;
+  padding: 0 10px;
+}
+
+.profile-link {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.profile-info {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.sidebar:hover .profile-info {
+  display: flex;
+}
+
+.profile-info h3 {
+  margin: 5px 0;
+  font-size: 16px;
+  color: #000;
+}
+
+.profile-info p {
+  font-size: 13px;
+  color: #333;
+  line-height: 1.4;
+}
+
+/* Navigation Links - Left Aligned */
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 5px;
+  padding: 0;
+}
+
+.nav-links a {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-decoration: none;
+  color: #000;
+  font-size: 15px;
+  border-radius: 10px;
+  padding: 12px 20px;
+  transition: background 0.3s;
+  margin: 0 10px;
+}
+
+/* When sidebar is collapsed - center icons */
+.sidebar:not(:hover) .nav-links a {
+  justify-content: center;
+  padding: 12px 0;
+  margin: 0;
+}
+
+/* When sidebar is expanded - left align */
+.sidebar:hover .nav-links a {
+  justify-content: flex-start;
+  padding-left: 25px;
+}
+
+.nav-links a:hover {
+  background: #a7c8f5;
+}
+
+.nav-links a.active {
+  background-color: #a7c8f5;
+}
+
+.nav-links i {
+  min-width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-links span {
+  display: none;
+  white-space: nowrap;
+}
+
+.sidebar:hover .nav-links span {
+  display: inline;
+}
+
+.nav-top {
+  flex: 1;
+}
+
+.nav-bottom {
+  margin-bottom: 20px;
+}
+
+/* ============================================
+   MAIN CONTENT AREA
+   ============================================ */
+
+.main {
+  flex: 1;
+  padding: 30px 50px;
+  overflow-y: auto;
+}
+
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.main-header h2 {
+  font-size: 28px;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.search-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  width: 18px;
+  height: 18px;
+  color: #999;
+}
+
+.search-bar {
+  padding: 10px 15px 10px 40px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  width: 300px;
+  transition: all 0.3s;
+  background: white;
+}
+
+.search-bar:focus {
+  outline: none;
+  border-color: #1e40af;
+  box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+}
+
+/* ============================================
+   NOTIFICATION CONTROLS (Filters & Actions)
+   ============================================ */
+
+.notification-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: 1px solid #ddd;
+  background: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s;
+  color: #666;
+}
+
+.filter-btn:hover {
+  background: #f5f5f5;
+  border-color: #1e40af;
+  color: #1e40af;
+}
+
+.filter-btn.active {
+  background: #1e40af;
+  color: white;
+  border-color: #1e40af;
+}
+
+.filter-btn i {
+  width: 16px;
+  height: 16px;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: 1px solid #ddd;
+  background: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s;
+  color: #666;
+}
+
+.action-btn:hover {
+  background: #f5f5f5;
+  border-color: #999;
+}
+
+.action-btn i {
+  width: 16px;
+  height: 16px;
+}
+
+/* ============================================
+   NOTIFICATIONS CONTAINER
+   ============================================ */
+
+.notifications-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.notification-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 18px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  transition: all 0.3s;
+  border-left: 4px solid transparent;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+}
+
+.notification-item:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.12);
+  transform: translateY(-2px);
+}
+
+.notification-item.unread {
+  background: #f0f7ff;
+  border-left-color: #1e40af;
+}
+
+.notification-item.read {
+  opacity: 0.8;
+}
+
+/* ============================================
+   NOTIFICATION ICON (Type-based colors)
+   ============================================ */
+
+.notification-icon {
+  width: 45px;
+  height: 45px;
+  min-width: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.notification-icon i {
+  width: 22px;
+  height: 22px;
+}
+
+.type-announcement {
+  background: linear-gradient(135deg, #3b82f6, #1e40af);
+}
+
+.type-alert {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+
+.type-update {
+  background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.type-reminder {
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+}
+
+/* ============================================
+   NOTIFICATION CONTENT
+   ============================================ */
+
+.notification-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.notification-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.notification-header h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.notification-time {
+  font-size: 13px;
+  color: #999;
+  white-space: nowrap;
+}
+
+.notification-content p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ============================================
+   NOTIFICATION ITEM CONTROLS (Buttons)
+   ============================================ */
+
+.notification-controls-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-end;
+}
+
+.mark-read,
+.delete-notification {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  color: #666;
+}
+
+.mark-read:hover {
+  background: #10b981;
+  color: white;
+  border-color: #10b981;
+}
+
+.delete-notification:hover {
+  background: #ef4444;
+  color: white;
+  border-color: #ef4444;
+}
+
+.mark-read i,
+.delete-notification i {
+  width: 16px;
+  height: 16px;
+}
+
+/* ============================================
+   EMPTY STATE (No Notifications)
+   ============================================ */
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+}
+
+.empty-icon {
+  width: 80px;
+  height: 80px;
+  color: #ddd;
+  margin-bottom: 20px;
+}
+
+.empty-state h2 {
+  font-size: 22px;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.empty-state p {
+  font-size: 15px;
+  color: #999;
+}
+
+/* ============================================
+   DARK MODE STYLES
+   ============================================ */
+
+body.dark {
+  background: #121212;
+  color: #fff;
+}
+
+body.dark .sidebar {
+  background: #525252;
+}
+
+body.dark .nav-links a {
+  color: #fff;
+}
+
+body.dark .nav-links a:hover {
+  background: #8a8a8a;
+}
+
+body.dark .nav-links a.active {
+  background-color: #8a8a8a;
+}
+
+body.dark .profile-info h3,
+body.dark .profile-info p {
+  color: #fff;
+}
+
+body.dark .main-header h2 {
+  color: #ffffff;
+}
+
+body.dark .search-bar {
+  background: #525252;
+  border-color: #666;
+  color: #fff;
+}
+
+body.dark .search-bar::placeholder {
+  color: #999;
+}
+
+body.dark .search-icon {
+  color: #999;
+}
+
+body.dark .filter-btn {
+  background: #525252;
+  border-color: #666;
+  color: #ccc;
+}
+
+body.dark .filter-btn:hover {
+  background: #666;
+  border-color: #93c5fd;
+  color: #93c5fd;
+}
+
+body.dark .filter-btn.active {
+  background: #93c5fd;
+  color: #121212;
+  border-color: #93c5fd;
+}
+
+body.dark .action-btn {
+  background: #525252;
+  border-color: #666;
+  color: #ccc;
+}
+
+body.dark .action-btn:hover {
+  background: #666;
+  border-color: #999;
+}
+
+body.dark .notification-item {
+  background: #525252;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+body.dark .notification-item.unread {
+  background: #3d4b66;
+  border-left-color: #93c5fd;
+}
+
+body.dark .notification-header h3 {
+  color: #fff;
+}
+
+body.dark .notification-content p {
+  color: #ccc;
+}
+
+body.dark .notification-time {
+  color: #999;
+}
+
+body.dark .mark-read,
+body.dark .delete-notification {
+  background: #525252;
+  border-color: #666;
+  color: #ccc;
+}
+
+body.dark .mark-read:hover {
+  background: #10b981;
+  color: white;
+  border-color: #10b981;
+}
+
+body.dark .delete-notification:hover {
+  background: #ef4444;
+  color: white;
+  border-color: #ef4444;
+}
+
+body.dark .empty-state {
+  background: #525252;
+}
+
+body.dark .empty-state h2 {
+  color: #fff;
+}
+
+body.dark .empty-state p {
+  color: #999;
+}
+
+body.dark .empty-icon {
+  color: #666;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 768px) {
+  .main {
+    padding: 20px;
+  }
+
+  .main-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-wrapper {
+    width: 100%;
+  }
+
+  .search-bar {
+    width: 100%;
+  }
+
+  .notification-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-buttons,
+  .action-buttons {
+    width: 100%;
+  }
+
+  .filter-buttons {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 5px;
+  }
+
+  .notification-item {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .notification-header {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .notification-controls-item {
+    flex-direction: row;
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .action-buttons {
+    justify-content: stretch;
+  }
+
+  .action-btn {
+    flex: 1;
+  }
+}
+
+@media (max-width: 700px) {
+  .sidebar {
+    width: 60px;
+  }
+}
+
+@media (max-width: 500px) {
+  .main {
+    padding: 15px;
+  }
+
+  .main-header h2 {
+    font-size: 24px;
+  }
+
+  .notification-item {
+    padding: 15px;
+  }
+
+  .notification-icon {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+  }
+
+  .notification-icon i {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* ============================================
+   ADDITIONAL UTILITY CLASSES
+   ============================================ */
+
+/* Scrollbar styling */
+.main::-webkit-scrollbar {
+  width: 8px;
+}
+
+.main::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.main::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.main::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+body.dark .main::-webkit-scrollbar-track {
+  background: #2a2a2a;
+}
+
+body.dark .main::-webkit-scrollbar-thumb {
+  background: #666;
+}
+
+body.dark .main::-webkit-scrollbar-thumb:hover {
+  background: #888;
+}
+
+/* Loading state (optional) */
+.notification-item.loading {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Badge for unread count in sidebar */
+.nav-links .unread-badge {
+  background: #ef4444;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 600;
+  margin-left: auto;
+}
+
+/* Hover effects for better UX */
+.filter-btn:active,
+.action-btn:active {
+  transform: scale(0.98);
+}
+
+.mark-read:active,
+.delete-notification:active {
+  transform: scale(0.95);
+}
+
+/* Focus states for accessibility */
+.search-bar:focus,
+.filter-btn:focus,
+.action-btn:focus,
+.mark-read:focus,
+.delete-notification:focus {
+  outline: 2px solid #1e40af;
+  outline-offset: 2px;
+}
+
+body.dark .search-bar:focus,
+body.dark .filter-btn:focus,
+body.dark .action-btn:focus,
+body.dark .mark-read:focus,
+body.dark .delete-notification:focus {
+  outline-color: #93c5fd;
+}

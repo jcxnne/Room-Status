@@ -1,0 +1,357 @@
+/* Audit Log Page Styles */
+
+.audit-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 25px;
+  align-items: start;
+}
+
+/* Left Column */
+.left-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.chart-card {
+  background: #fff;
+  border-radius: 15px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s;
+}
+
+.chart-card h2 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 20px 0;
+  color: #1a1a1a;
+}
+
+#roomUsageChart {
+  max-height: 300px;
+}
+
+/* Date Filter Card */
+.date-filter-card {
+  background: #fff;
+  border-radius: 15px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  display: flex;
+  gap: 20px;
+}
+
+.date-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.date-group label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.date-group input[type="date"] {
+  padding: 12px 14px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 14px;
+  outline: none;
+  transition: 0.3s;
+  background: #fff;
+  color: #1a1a1a;
+}
+
+.date-group input[type="date"]:focus {
+  border-color: #1e40af;
+  box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+}
+
+/* Right Column - Flagged Cases */
+.right-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flagged-cases-card {
+  background: #fff;
+  border-radius: 15px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  height: fit-content;
+}
+
+.flagged-cases-card h2 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 20px 0;
+  color: #1a1a1a;
+}
+
+/* Table Wrapper */
+.table-wrapper {
+  overflow-x: auto;
+  overflow-y: auto;
+  max-height: 500px;
+  border-radius: 10px;
+}
+
+.table-wrapper::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.table-wrapper::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+  background: #c7c7c7;
+  border-radius: 10px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+
+/* Flagged Table */
+.flagged-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.flagged-table thead {
+  position: sticky;
+  top: 0;
+  background: #f9fafb;
+  z-index: 10;
+}
+
+.flagged-table th {
+  padding: 14px 16px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 13px;
+  color: #374151;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.flagged-table tbody tr {
+  border-bottom: 1px solid #f3f4f6;
+  transition: all 0.2s;
+}
+
+.flagged-table tbody tr:hover {
+  background: #f9fafb;
+}
+
+.flagged-table td {
+  padding: 16px;
+  font-size: 14px;
+}
+
+/* Row highlighting based on status */
+.case-row.processing {
+  background: #fef9e7;
+}
+
+.case-row.resolved {
+  background: #ffffff;
+}
+
+.case-row.processing:hover {
+  background: #fef3c7;
+}
+
+.faculty-name {
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.description {
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+.date {
+  color: #6b7280;
+  white-space: nowrap;
+}
+
+/* Status Badges */
+.status-badge {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+.status-badge.processing {
+  background: #fcd34d;
+  color: #92400e;
+}
+
+.status-badge.resolved {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+/* Dark Mode */
+body.dark .chart-card,
+body.dark .date-filter-card,
+body.dark .flagged-cases-card {
+  background: #525252;
+}
+
+body.dark .chart-card h2,
+body.dark .flagged-cases-card h2 {
+  color: #fff;
+}
+
+body.dark .date-group label {
+  color: #e5e7eb;
+}
+
+body.dark .date-group input[type="date"] {
+  background: #333;
+  color: #fff;
+  border-color: #555;
+}
+
+body.dark .date-group input[type="date"]:focus {
+  border-color: #93c5fd;
+  box-shadow: 0 0 0 3px rgba(147, 197, 253, 0.1);
+}
+
+body.dark .table-wrapper::-webkit-scrollbar-track {
+  background: #3a3a3a;
+}
+
+body.dark .table-wrapper::-webkit-scrollbar-thumb {
+  background: #666;
+}
+
+body.dark .table-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #777;
+}
+
+body.dark .flagged-table thead {
+  background: #3a3a3a;
+}
+
+body.dark .flagged-table th {
+  color: #e5e7eb;
+  border-bottom-color: #555;
+}
+
+body.dark .flagged-table tbody tr {
+  border-bottom-color: #555;
+}
+
+body.dark .flagged-table tbody tr:hover {
+  background: #5a5a5a;
+}
+
+body.dark .case-row.processing {
+  background: #4a4520;
+}
+
+body.dark .case-row.processing:hover {
+  background: #5a5530;
+}
+
+body.dark .case-row.resolved {
+  background: #525252;
+}
+
+body.dark .case-row.resolved:hover {
+  background: #5a5a5a;
+}
+
+body.dark .faculty-name {
+  color: #fff;
+}
+
+body.dark .description {
+  color: #d1d5db;
+}
+
+body.dark .date {
+  color: #9ca3af;
+}
+
+body.dark .status-badge.processing {
+  background: #78350f;
+  color: #fcd34d;
+}
+
+body.dark .status-badge.resolved {
+  background: #064e3b;
+  color: #6ee7b7;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .audit-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .right-column {
+    order: -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .date-filter-card {
+    flex-direction: column;
+  }
+
+  .table-wrapper {
+    max-height: 400px;
+  }
+
+  .flagged-table {
+    font-size: 13px;
+  }
+
+  .flagged-table th,
+  .flagged-table td {
+    padding: 12px;
+  }
+
+  .flagged-table th {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .chart-card,
+  .date-filter-card,
+  .flagged-cases-card {
+    padding: 16px;
+  }
+
+  .flagged-table {
+    font-size: 12px;
+  }
+
+  .flagged-table th,
+  .flagged-table td {
+    padding: 10px 8px;
+  }
+
+  .status-badge {
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+}
+
